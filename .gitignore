@@ -1,0 +1,16 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.cache-loader/
+*.bak
+.DS_Store
+doc/
+*.sublime-project
+*.sublime-workspace
+stdout
+.env.local
+.env
+node_modules/
+yarn-error.log
+*.swp

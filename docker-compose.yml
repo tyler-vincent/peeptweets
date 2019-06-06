@@ -1,0 +1,36 @@
+version: '3.0'
+services:
+  db:
+    image: postgres:10
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_USER_PASSWORD}
+
+  webpacker:
+    image: ${DOCKER_IMAGE_NAME-peeptweets}
+    command: ["./scripts/start_webpack_dev.sh"]
+    volumes:
+      - .:/opt/peeptweets:cached
+    ports:
+      - 3035:3035
+
+  web:
+    image: ${DOCKER_IMAGE_NAME-peeptweets}
+    build:
+      context: .
+      args:
+        precompileassets: 'not'
+    links:
+      - db
+      - webpacker
+    ports:
+      - 3000:3000
+    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/start_rails.sh"]
+    volumes:
+      - .:/opt/peeptweets:cached
+
+volumes:
+  db-data:
