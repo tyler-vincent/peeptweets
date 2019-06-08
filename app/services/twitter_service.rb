@@ -23,8 +23,12 @@ class TwitterService
 	def search_and_rate_sentiment(term)
 		combined_sentiments = [*verified_search_sentiments(term), *fulltext_search_sentiments(term)]
 
+		p "SENTIMENT SCORE"
+		p combined_sentiments
+		p combined_sentiments.sum.fdiv(combined_sentiments.size)
+		p "_______________"
 		# Average combined sentiment
-		return combined_sentiments.sum.fdiv(combined_sentiments.size)
+		return combined_sentiments.sum.fdiv(combined_sentiments.size).round(2)
 	end
 
 	private

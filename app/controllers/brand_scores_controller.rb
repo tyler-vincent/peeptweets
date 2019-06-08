@@ -27,7 +27,7 @@ class BrandScoresController < ApplicationController
     @brand_score = BrandScore.new(brand_score_params)
 
     twitter = TwitterService.new
-    @brand_score.score = twitter.search_and_rate_sentiment(brand_score_params.term)
+    @brand_score.score = twitter.search_and_rate_sentiment(@brand_score.term)
 
     respond_to do |format|
       if @brand_score.save

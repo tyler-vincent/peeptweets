@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
-    <h1>FARTSss3</h1>
+    <h1>Brand Sentiment Analyzer</h1>
+
+    
   </div>
 </template>
 
