@@ -1,0 +1,2 @@
+class BrandScore < ApplicationRecord
+end
