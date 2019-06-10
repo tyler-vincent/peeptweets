@@ -4,6 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "^4.0.2",
     "axios": "^0.19.0",
+    "tailwindcss": "^1.0.3",
+    "vgauge": "^1.2.5-rc.2",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-loader": "^15.7.0",
