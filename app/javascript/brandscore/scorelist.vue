@@ -1,6 +1,6 @@
 <template>
 
-  <div id="scorelist">
+  <div id="scorelist" class="mt-16">
     <div class="w-2/3 mx-auto">
       <div class="bg-white shadow-md rounded my-6">
         <table class="text-left w-full border-collapse"> 
@@ -33,6 +33,3 @@
   }
 
 </script>
-
-<style scoped>
-</style>

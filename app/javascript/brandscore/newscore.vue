@@ -1,22 +1,23 @@
 <template>
 
-  <div id="newscore">
+  <div id="newscore" class="mt-10">
 
     <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
       <div class="items-center">
 
-        <transition name="fade">
-          <div class="loading"  v-if="loading">
-            <div class="spinner"></div>
-          </div>
-        </transition>
-
         <div class="w-full block content-center">
-            <scoreGauge :score="currentScore"></scoreGauge>
+          <scoreGauge :score="currentScore"></scoreGauge>
         </div>
 
         <div class="bg-gray-400 p-6">
           <div class="w-full text-center">
+
+            <transition name="fade">
+              <div class="spinner-container" v-if="loading">
+                <div class="spinner"></div>
+              </div>
+            </transition>
+
             <form v-on:submit.prevent="startAnalysis">
               <div class="max-w-sm mx-auto p-1 pr-0 flex items-center">
                 <input v-model="term" id="term" class="flex-1 appearance-none rounded shadow p-3 text-grey-dark mr-2 focus:outline-none" type="text" placeholder="Type a brand name to begin" aria-label="Brand Name">
@@ -82,6 +83,16 @@
     to {transform: rotate(360deg);}
   }
      
+  .spinner-container {
+    background: #fff;
+    width: 150px;
+    height: 90px;
+    position: absolute;
+    top: 150px;
+    z-index: 9999;
+    margin-left: 85px;
+  }
+
   .spinner {
     position: relative;
   }
