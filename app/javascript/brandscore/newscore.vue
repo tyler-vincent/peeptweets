@@ -1,4 +1,5 @@
 <template>
+
   <div id="newscore">
 
     <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
@@ -6,7 +7,7 @@
 
         <transition name="fade">
           <div class="loading"  v-if="loading">
-            <p>Loading</p>
+            <div class="spinner"></div>
           </div>
         </transition>
 
@@ -29,9 +30,11 @@
     </div>
 
   </div>
+
 </template>
 
 <script>
+
   import scoreGauge from './scoregauge.vue'
 
   export default {
@@ -55,8 +58,6 @@
         })
           .then(response => { 
             this.result = response.data
-            console.log(response.data)
-            console.log(response.data.percentage_score)
             this.currentScore = response.data.percentage_score
             this.loading = false
           })
@@ -64,9 +65,11 @@
       }    
     }
   }
+
 </script>
 
 <style scoped>
+
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
@@ -74,4 +77,29 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
+
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+     
+  .spinner {
+    position: relative;
+  }
+
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    border-top-color: #07d;
+    animation: spinner .6s linear infinite;
+  }
+
 </style>

@@ -9,13 +9,13 @@
 </template>
 
 <script>
+
   import VueApexCharts from 'vue-apexcharts'
 
   export default {
     name: 'scoreGauge',
     props: ['score'],
     components: {
-      VGauge,
       VueApexCharts
     },
     data: function () {
@@ -77,15 +77,14 @@
           },
           fill: {
             colors: [function({ value }) {
-                    if(value <= 40) {
-                        return '#f23e35'
-                    } else if (value > 40 && value < 60) {
-                        return '#b2cfff'
-                    } else {
-                        return '#4fff60'
-                    }
-                }],
-            
+              if(value <= 40) {
+                  return '#f23e35'
+              } else if (value > 40 && value < 60) {
+                  return '#b2cfff'
+              } else {
+                  return '#4fff60'
+              }
+            }],
           },
           stroke: {
             lineCap: 'round'
@@ -95,6 +94,7 @@
       }
     }
   }
+
 </script>
 
 <style scoped>
