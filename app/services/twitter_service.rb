@@ -23,10 +23,6 @@ class TwitterService
 	def search_and_rate_sentiment(term)
 		combined_sentiments = [*verified_search_sentiments(term), *fulltext_search_sentiments(term)]
 
-		p "SENTIMENT SCORE"
-		p combined_sentiments
-		p combined_sentiments.sum.fdiv(combined_sentiments.size)
-		p "_______________"
 		# Average combined sentiment
 		return combined_sentiments.sum.fdiv(combined_sentiments.size).round(2)
 	end
@@ -48,7 +44,7 @@ class TwitterService
 	 	verified_users = find_verified_users(term)
 
 	 	verified_users.each do |user|
-		 	client.search("to:#{user.name} OR @#{user.name}", :result_type => "recent", :lang => 'en').take(20).each do |tweet|
+		 	client.search("to:#{user.name} OR @#{user.name}", :result_type => "recent", :lang => 'en').take(40).each do |tweet|
 			  sentiments << analyzer.score(tweet.full_text)
 			end
 	 	end
