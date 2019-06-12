@@ -1,24 +1,17 @@
-# README
+# SETUP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Duplicate .env.example and rename the file to .env
 
-Things you may want to cover:
+* Fill .env in with your Twitter API credentials
 
-* Ruby version
+* Install Docker
+ 
+* Run `docker-compose build`
 
-* System dependencies
+* Run `docker-compose run --rm web rake db:create`
 
-* Configuration
+* Run `docker-compose run --rm web rake db:migrate`
 
-* Database creation
+* Run `docker-compose up` to start the server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Application should be available at `localhost:3000`
