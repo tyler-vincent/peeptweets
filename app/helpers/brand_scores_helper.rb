@@ -1,0 +1,2 @@
+module BrandScoresHelper
+end
